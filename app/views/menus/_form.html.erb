@@ -1,0 +1,8 @@
+<%= simple_form_for menu do |f| %>
+  <%= f.input :meal %>
+  <label class="control-label"for="menu_start">Start</label>
+  <%= f.time_field :start, :label=> "Start" %>
+  <label class="control-label"for="menu_stop">Stop</label>
+  <%= f.time_field :stop, :label=> "Stop"%>
+  <%= f.button :submit %>
+<% end %>

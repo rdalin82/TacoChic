@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20170226154639) do
     t.string   "name"
     t.text     "description"
     t.decimal  "price",       precision: 8, scale: 2
-    t.string   "category"
     t.integer  "menu_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

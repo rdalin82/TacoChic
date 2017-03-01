@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.decimal :price, precision: 8, scale: 2
-      t.string :category
       t.references :menu, index:true, foreign_key: true
 
       t.timestamps

@@ -42,6 +42,6 @@ class ItemsController < ApplicationController
     @menu = Menu.find(params[:menu_id])
   end
   def item_params
-    params.require(:item).permit(:name, :description, :category, :price)
+    params.require(:item).permit(:name, :description, :category_id, :price)
   end
 end

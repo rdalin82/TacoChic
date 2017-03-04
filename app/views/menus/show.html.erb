@@ -8,7 +8,7 @@
         <div class="panel panel-default">
           <% @menu.items.each do |item| %>
           <div class="panel-heading">
-            <h3><%=item.name %> | <%= price_of(item) %></h3>
+            <h3><%=item.name %> | <%= price_of(item) %> | <%= item.category.name %> </h3>
             <h3><%= link_to "Show", menu_item_path(@menu, item) %> |
               <%= link_to "Edit", edit_menu_item_path(@menu, item) %> |
               <%= link_to "Delete", [@menu, item], method: :delete,
@@ -23,6 +23,9 @@
       </div>
       <div class="col-md-3">
         <h2>Categories</h2>
+        <% @menu.categories.each do |c| %>
+        <h4><%= c.name %></h4>
+        <% end %>
         <%= image_tag "tacos.jpg" %>
       </div>
     </div>

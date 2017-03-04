@@ -7,7 +7,8 @@ RSpec.feature "Users visiting the menu page" do
 
   before do
     menu = FactoryGirl.create(:menu)
-    FactoryGirl.create(:item, menu: menu)
+    category = FactoryGirl.create(:category)
+    @item = FactoryGirl.create(:item, menu: menu, category: category)
     visit root_path
     click_link "Menus"
   end

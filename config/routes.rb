@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   #
   # get 'menus/show'
   resources :menus do
-    resources :items, only: [:new, :create, :show, :edit, :update, :destroy] 
+    resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
   end
+  resources :categories
   root 'home#index'
 
 

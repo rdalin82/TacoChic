@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "showing individual menu items" do
   before do
     menu = FactoryGirl.create(:menu)
-    @item = FactoryGirl.create(:item, menu: menu)
+    category = FactoryGirl.create(:category)
+    @item = FactoryGirl.create(:item, menu: menu, category: category)
     visit root_path
     click_link "Menus"
     click_link "Brunch"

@@ -1,5 +1,7 @@
 <div class="container-fluid">
   <h2>Update Menu</h2>
   <h3><%= @item.name %></h3>
-  <%= render "form", menu: @menu, item: @item %>
+  <div class="form-group form-group-md">
+    <%= render "form", menu: @menu, item: @item %>
+  </div>
 </div>

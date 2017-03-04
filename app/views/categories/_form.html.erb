@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <%= simple_form_for category do |f| %>
+  <%= simple_form_for [menu, category] do |f| %>
     <%= f.input :name %>
     <%= f.button :submit %>
   <% end %>

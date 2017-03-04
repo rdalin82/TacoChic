@@ -1,31 +1,29 @@
 class CategoriesController < ApplicationController
-  def index
-    @categories = Category.all
-  end
+  before_action :set_menu
   def new
-    @category = Category.new
+    @category = @menu.categories.build
   end
   def create
-    @category = Category.create(category_params)
+    @category = @menu.categories.build(category_params)
     if @category.save
       flash.now[:notice] = "successfully created"
-      redirect_to categories_path
+      redirect_to [@menu, @category]
     else
-      flash.now[:warning] = "unable to create new cateogry"
+      flash.now[:warning] = "unable to create new category"
       render :new
     end
   end
   def show
-    @category = Category.find(params[:id])
+    @category = @menu.categories.find(params[:id])
   end
   def edit
-    @category = Category.find(params[:id])
+    @category = @menu.categories.find(params[:id])
   end
   def update
-    @category = Category.find(params[:id])
+    @category = @menu.categories.find(params[:id])
     if @category.update(category_params)
       flash.now[:notice] = "successfully updated"
-      redirect_to categories_path
+      redirect_to [@menu, @category]
     else
       flash.now[:warning] = "unable to update categories"
       render :edit
@@ -39,6 +37,9 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit(:name)
+  end
+  def set_menu
+    @menu = Menu.find(params[:menu_id])
   end
 
 end

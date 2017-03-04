@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "deleting individual menu items" do
   before do
     menu = FactoryGirl.create(:menu)
-    category = FactoryGirl.create(:category)
+    category = FactoryGirl.create(:category, menu: menu)
     @item = FactoryGirl.create(:item, menu: menu, category: category)
     visit root_path
     click_link "Menus"

@@ -1,9 +1,5 @@
 class Menu < ApplicationRecord
   has_many :items
+  has_many :categories
   validates :meal, uniqueness: true
-
-  def categories
-    ids = items.collect { |i| i.category_id }.uniq
-    Category.find(ids) 
-  end
 end

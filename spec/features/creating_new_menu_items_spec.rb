@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "creating" do
   before do
-    FactoryGirl.create(:menu)
-    FactoryGirl.create(:category)
+    menu = FactoryGirl.create(:menu)
+    FactoryGirl.create(:category, menu: menu)
     visit root_path
     click_link "Menus"
     click_link "Brunch"

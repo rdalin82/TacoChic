@@ -2,10 +2,13 @@ require "rails_helper"
 
 RSpec.feature "Categories update" do
   before do
-    FactoryGirl.create(:category)
+    menu = FactoryGirl.create(:menu)
+    FactoryGirl.create(:category, menu: menu)
   end
   scenario "updating a category" do
-    visit categories_path
+    visit menus_path
+    click_link "Brunch"
+    click_link "Entre"
     click_link "Edit"
     fill_in "Name", with: "Snack"
     click_button "Update Category"

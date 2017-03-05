@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     @item = @menu.items.find(params[:id])
     if @item.update(item_params)
       flash.now[:notice] = "Item has been udpated"
-      redirect_to menu_path
+      redirect_to menu_path(@menu)
     else
       flash.now["warning"] = "Item was not updated"
       render :edit
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = @menu.items.find(params[:id])
     @item.destroy
-    redirect_to menu_path
+    redirect_to menu_path(@menu)
   end
 
   private

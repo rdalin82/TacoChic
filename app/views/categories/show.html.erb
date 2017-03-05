@@ -2,6 +2,26 @@
   <h1>Category</h1>
   <h3>
   <%= @category.name %>
-  <%= link_to "Edit", edit_menu_category_path(@category) %>
+  <%= link_to "Edit", edit_menu_category_path(@menu, @category) %>
   </h3>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <% @category.items.each do |item| %>
+        <div class="panel-heading">
+          <%=item.name %> | <%= price_of(item) %> | <%= item.category.name %>
+        </div>
+        <div class="panel-body">
+          <%= item.description %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <div class="btn btn-default">
+      <%= link_to "Back", menu_path(@menu) %>
+    </div>
+  </div>
 </div>

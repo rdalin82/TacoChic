@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.find(params[:id])
     @category.delete
-    redirect_to categories_path
+    redirect_to menu_path(@menu)
   end
   private
   def category_params

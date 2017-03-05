@@ -3,4 +3,9 @@
   <div class="form-group form-group-md">
     <%= render "form",  category: @category, menu: @menu %>
   </div>
+  <div class="btn-group">
+    <div class="btn btn-default">
+      <%= link_to "Back", menu_path(@menu) %>
+    </div>
+  </div>
 </div>

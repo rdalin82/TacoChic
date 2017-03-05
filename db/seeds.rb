@@ -37,7 +37,7 @@ if Menu.all.empty?
     price: 2.50,
     category: brunch_drinks
   )
-  brunch.item.create(
+  brunch.items.create(
     name "Huevos con Jamon",
     description: "Ham and eggs",
     price: 7.75,

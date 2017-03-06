@@ -22,7 +22,7 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(1)
+    @menu = Menu.find(params[:id])
     @categories = @menu.categories.includes(:items)
   end
 

@@ -1,8 +1,9 @@
-<div class="container-fluid">
   <h1>Category</h1>
   <h3>
   <%= @category.name %>
+  <% admin_only do %>
   <%= link_to "Edit", edit_menu_category_path(@menu, @category) %>
+  <% end %> 
   </h3>
   <div class="row">
     <div class="col-md-9">
@@ -24,4 +25,3 @@
       <%= link_to "Back", menu_path(@menu) %>
     </div>
   </div>
-</div>

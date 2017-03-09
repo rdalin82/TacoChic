@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.feature "updating" do
   before do
     FactoryGirl.create(:menu)
+    @admin = FactoryGirl.create(:user, :admin)
   end
-  scenario "an existing menu" do
+  scenario "an existing menu as admin" do
+    sign_in @admin
     visit root_path
     click_link "Menus"
     click_link "Edit"

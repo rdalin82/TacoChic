@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_menu
+  before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @item = @menu.items.build
   end

@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  before_action :authenticate_admin, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @menus = Menu.all.order(:start)
   end

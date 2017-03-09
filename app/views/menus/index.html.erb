@@ -1,14 +1,16 @@
-<div class="container-fluid">
   <h4>Menu</h4>
+  <% admin_only do %>
   <h4><%= link_to "New", new_menu_path %></h4>
+  <% end %> 
   <% @menus.each do |menu| %>
   <div class="menu">
     <h4><%= link_to menu.meal, menu %></h4>
     <h4>Hours: <%= time_display(menu) %></h4>
+    <% admin_only do %>
     <h4><%= link_to "Edit", edit_menu_path(menu) %>  |
        <%= link_to "Delete", menu, method: :delete,
            data: {confirm: "Are you sure you want to delete this menu"}%>
     </h4>
+    <% end %>
   </div>
   <% end %>
-</div>

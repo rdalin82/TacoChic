@@ -1,10 +1,11 @@
-<div class="container-fluid">
   <h3><%= @menu.meal %> Menu</h3>
   <h4>Hours: <%= time_display(@menu) %> </h4>
+  <% admin_only do %>
   <h5>
   <%= link_to "New Item", new_menu_item_path(@menu) %> |
     <%= link_to "New Category", new_menu_category_path(@menu) %>
   </h5>
+  <% end %> 
   <div class="row">
     <div class="col-md-9">
       <h4>Menu</h4>
@@ -20,4 +21,3 @@
       <%= image_tag "tacos.jpg" %>
     </div>
   </div>
-</div>

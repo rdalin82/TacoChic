@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.feature "creating a new menu" do
   before do
     @admin = FactoryGirl.create(:user, :admin)
+    sign_in @admin
     visit root_path
     click_link "Menus"
     click_link "New"
-    sign_in @admin
+
   end
   scenario "a new menu as admin" do
 

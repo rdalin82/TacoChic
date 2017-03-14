@@ -5,6 +5,8 @@ RSpec.describe "showing individual menu items" do
     menu = FactoryGirl.create(:menu)
     category = FactoryGirl.create(:category, menu: menu)
     @item = FactoryGirl.create(:item, menu: menu, category: category)
+    user = FactoryGirl.create(:user, :admin)
+    sign_in(user) 
     visit root_path
     click_link "Menus"
     click_link "Brunch"

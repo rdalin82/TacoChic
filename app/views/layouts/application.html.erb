@@ -39,6 +39,14 @@
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           </li>
           <% end %>
+          <li>
+            <button type="button" class="btn btn-primary" aria-label="Left Align">
+              <div style="display: inline" class="shopping-cart">
+                0
+              </div>
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>

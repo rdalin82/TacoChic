@@ -10,11 +10,13 @@ class ApplicationController < ActionController::Base
   end
 
   def item_count
-    if current_user
-      @item_count = current_user.orders.pending.last.order_items.count
-    else
-      @items_count = 0
+    @items_count = 0
+    if current_user.try(:orders)
+      if current_user.orders.pending.last
+        @items_count = current_user.orders.pending.last.order_items.count
+      end
     end
+    @items_count
   end
-  
+
 end

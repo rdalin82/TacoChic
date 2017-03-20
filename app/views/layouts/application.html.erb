@@ -40,11 +40,14 @@
           </li>
           <% end %>
           <li>
-            <button type="button" class="btn btn-primary" aria-label="Left Align">
+
+            <button type="button" class="btn btn-primary btn-sm" aria-label="Left Align">
+              <a href="/menus/orders/show">
               <div style="display: inline" class="shopping-cart">
-                0
+                <%= @item_count %>
               </div>
               <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+              </a>
             </button>
           </li>
         </ul>

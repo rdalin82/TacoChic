@@ -1,0 +1,47 @@
+<% if orders.count > 0 %>
+  <div class="table-responsive">
+    <table class="table table-condensed">
+      <% orders.each do |item| %>
+      <tr>
+        <td>
+          <h4>
+            <button type="button" class="btn btn-xs btn-warning menu-item-remove" data-item-id=<%="#{item.id}" %> >
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            <%= item.item.name %>
+          </h4>
+        </td>
+        <td>
+          <h4><%= price_of(item.item) %></h4>
+        </td>
+      </tr>
+      <% end %>
+      <tr>
+        <td>
+          <h3>Sub Total: </h3>
+        </td>
+        <td>
+          <h3><%= price_of_order(total(orders) ) %></h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Tax: </h3>
+        </td>
+        <td>
+          <h3><%= price_of_order(tax(orders) ) %></h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h2>Total: </h2>
+        </td>
+        <td>
+          <h2><%= price_of_order(total(orders)+tax(orders) ) %></h2>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% else %>
+  <h4>Please go to menus and add some items</h4>
+<% end %>

@@ -1,0 +1,11 @@
+From Taco Chic
+Hooray, good food will be ready soon
+
+Thank you for your order <%= @user_email %>, it will be ready for pickup at <%= @ready_time.strftime("%I:%M%p") %>
+Your Order
+<% @order.each do |order_item| %>
+<%= order_item.item.name %> | price <%= price_of(order_item.item) %>
+<% end %>
+Subtotal: <%= price_of_order(total(@order) ) %>
+Tax: <%= price_of_order(tax(@order) ) %>
+Total: <%= price_of_order(total(@order)+tax(@order) ) %>

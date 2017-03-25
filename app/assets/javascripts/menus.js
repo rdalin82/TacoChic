@@ -7,9 +7,17 @@ $(document).on( 'turbolinks:load', function(){
     .done(function(data){
       var itemCount = $(".shopping-cart").text().trim();
       $(".shopping-cart").text(parseInt(itemCount)+1);
+      $(".flash").html("Item added")
+      setTimeout(function(){
+        $(".flash").html("")
+      }, 2000)
     })
     .fail(function(data){
-      console.log("error adding item ", data)
+      console.log("error adding item ", data);
+      $(".flash").html("There was an error adding your item" )
+      setTimeout(function(){
+        $(".flash").html("")
+      }, 2000)
     })
   });
 
@@ -21,10 +29,33 @@ $(document).on( 'turbolinks:load', function(){
       var itemCount = $(".shopping-cart").text().trim();
       if (parseInt(itemCount) > 0) {
         $(".shopping-cart").text(parseInt(itemCount)-1);
+        $(".flash").html("Item removed")
+        setTimeout(function(){
+          $(".flash").html("")
+        }, 2000)
       }
     })
     .fail(function(data){
       console.log("error removing item ", data);
+      $(".flash").html("Item was notremoved")
+      setTimeout(function(){
+        $(".flash").html("")
+      }, 2000)
+    })
+  })
+  $(".order-submit").on("click", function(event){
+    $.post("/menus/orders/show/submit")
+    .done(function(data){
+      $(".flash").html("Submitting....")
+      setTimeout(function(){
+        $(".flash").html("")
+      }, 2000)
+    })
+    .fail(function(){
+      $(".flash").html("Order failed...")
+      setTimeout(function(){
+        $(".flash").html("")
+      }, 2000)
     })
   })
 });

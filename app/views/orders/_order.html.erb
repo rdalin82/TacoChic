@@ -41,7 +41,10 @@
         </td>
       </tr>
     </table>
+    <button type="button" class="btn btn-md btn-success order-submit" >
+      submit
+    </button>
   </div>
 <% else %>
-  <h4>Please go to menus and add some items</h4>
+  <h4>Please go to <%= link_to "Menus", menus_path %> and add some items</h4>
 <% end %>

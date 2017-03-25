@@ -1,18 +1,18 @@
 <div style="background-color: #2B3E50 !important; color:#EBEBEB !important;">
-  <h1>From Taco Chic</h1>
-  <h1>Hooray, good food will be ready soon</h1>
+  <h1 style="color:#EBEBEB !important">From Taco Chic</h1>
+  <h1 style="color:#EBEBEB !important">Hooray, good food will be ready soon</h1>
 
-  <h3>
+  <h3 style="color:#EBEBEB !important">
     Thank you for your order <%= @user_email %>,
     it will be ready for pickup at <%= @ready_time.strftime("%I:%M%p") %>
   </h3>
-  <h2>Your Order</h2>
+  <h2 style="color:#EBEBEB !important">Your Order</h2>
   <% @order.each do |order_item| %>
-    <p>
+    <p style="color:#EBEBEB !important">
       <%= order_item.item.name %> | price <%= price_of(order_item.item) %>
     </p>
   <% end %>
-  <h3>Subtotal: <%= price_of_order(total(@order) ) %></h3>
-  <h3>Tax: <%= price_of_order(tax(@order) ) %></h3>
-  <h3>Total: <%= price_of_order(total(@order)+tax(@order) ) %></h3>
+  <h3 style="color:#EBEBEB !important">Subtotal: <%= price_of_order(total(@order) ) %></h3>
+  <h3 style="color:#EBEBEB !important">Tax: <%= price_of_order(tax(@order) ) %></h3>
+  <h3 style="color:#EBEBEB !important">Total: <%= price_of_order(total(@order)+tax(@order) ) %></h3>
 </div>

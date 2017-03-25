@@ -9,9 +9,11 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
     resources :categories, only: [:new, :create, :show, :edit, :update, :destory]
   end
-  get "menus/orders/show" => "orders#show", as: :show_order
-  post "menus/orders/:item_id/add" => 'orders#add'
+  get "menus/orders/show"             => "orders#show", as: :show_order
+  get "menus/orders/thanks"           => 'orders#thanks'
+  post "menus/orders/:item_id/add"    => 'orders#add'
   post "menus/orders/:item_id/remove" => 'orders#remove'
+  post "menus/orders/show/submit"          => 'orders#submit'
   root 'home#index'
 
 

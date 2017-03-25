@@ -23,6 +23,7 @@ gem 'bootswatch-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'bxslider-rails'
+gem 'resque'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

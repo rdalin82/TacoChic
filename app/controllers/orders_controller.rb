@@ -17,12 +17,26 @@ class OrdersController < ApplicationController
   def remove
     @user.orders.last.order_items.delete(OrderItem.find(params[:item_id]))
     if @user.orders.last.save
-      flash.now[:notice] = "Item was removed"
       redirect_to :show_order
     else
-      flash.now[:warning] = "Item was not removed"
       redirect_to :show_order
     end
+  end
+
+  def submit
+    @last_order = @user.orders.last
+    if OrderMailerJob.perform_now(current_user, @last_order.order_items) && @last_order.save
+      @last_order.update(completed: true)
+      flash.now[:notice] = "Order was submitted, please check your email"
+      #delayed email job
+      redirect_to :menus_orders_thanks
+    else
+      flash.now[:warning] = "Order cannot be submitted at this time"
+      render :show
+    end
+  end
+
+  def thanks
   end
 
   private

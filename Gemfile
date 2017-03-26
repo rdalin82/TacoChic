@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rspec', "~>3.5.0"
   gem "factory_girl"
   gem 'sqlite3'
+  gem 'travis'
 end
 
 group :development do

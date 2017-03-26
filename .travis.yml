@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+- 2.3.1
+before_install: openssl aes-256-cbc -K $encrypted_a76d9556054c_key -iv $encrypted_a76d9556054c_iv -in application.yml.enc -out config/application.yml -d
+script:
+  - bin/rake db:migrate RAILS_ENV=test
+  - bin/rake

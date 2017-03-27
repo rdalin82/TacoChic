@@ -1,4 +1,4 @@
-$(document).on( 'turbolinks:load', function(){
+$(document).on( 'turbolinks:visit', function(){
   $('.bxslider').bxSlider({
     auto: true,
     autoControls: true,
